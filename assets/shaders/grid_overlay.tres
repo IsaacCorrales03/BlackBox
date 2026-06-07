@@ -1,0 +1,15 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform float cell_size = 40.0;
+uniform vec4 bg_color : hint_color = vec4(0.031, 0.047, 0.063, 1.0);
+uniform vec4 line_color : hint_color = vec4(0.0, 0.784, 0.588, 0.06);
+
+void fragment() {
+    vec2 uv = UV * vec2(1024.0, 512.0);
+    vec2 grid = mod(uv, cell_size);
+    float on_line = clamp(step(cell_size - 1.0, grid.x) + step(cell_size - 1.0, grid.y), 0.0, 1.0);
+    COLOR = mix(bg_color, vec4(line_color.rgb, 1.0), on_line * line_color.a);
+}"

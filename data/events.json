@@ -1,0 +1,160 @@
+[
+  {
+    "id": "tutorial_1",
+    "title": "Introducción",
+    "description": "Hola, soy Cherry. Bienvenido a Blackbox Exec.\n\nA lo largo del juego se te presentarán distintas situaciones. En cada una deberás elegir la opción que consideres más adecuada. No existe una respuesta perfecta: cada decisión puede desencadenar consecuencias inesperadas.",
+    "character": "cherry",
+    "probability": 10,
+    "min_turn": 1,
+    "max_turn": 1,
+    "requirements": {
+      "money": 0,
+      "innovation": 0,
+      "workers": 0,
+      "acceptance": 0
+    },
+    "required_flags": [],
+    "option1": {
+      "text": "Continuar",
+      "effects": {},
+      "flags_add": [],
+      "flags_messages": {}
+    },
+    "option2": {
+      "text": "Continuar",
+      "effects": {},
+      "flags_add": [],
+      "flags_messages": {}
+    },
+    "position": 1
+  },
+  {
+    "id": "tutorial_2",
+    "title": "Introducción 2",
+    "description": "En el panel derecho podrás consultar tus estadísticas en todo momento.\n\nTus decisiones pueden aumentarlas o reducirlas, así que administra tus recursos con cuidado. Mantener un equilibrio será clave para seguir avanzando.",
+    "character": "cherry",
+    "probability": 10,
+    "min_turn": 2,
+    "max_turn": 2,
+    "requirements": {
+      "money": 0,
+      "innovation": 0,
+      "workers": 0,
+      "acceptance": 0
+    },
+    "required_flags": [],
+    "option1": {
+      "text": "Continuar",
+      "effects": {},
+      "flags_add": [],
+      "flags_messages": {}
+    },
+    "option2": {
+      "text": "Continuar",
+      "effects": {},
+      "flags_add": [],
+      "flags_messages": {}
+    },
+    "position": 2
+  },
+  {
+    "id": "tutorial_3",
+    "title": "Introducción 3",
+    "description": "Si cualquiera de tus estadísticas llega a 0, la partida terminará.\n\nIntenta sobrevivir el mayor tiempo posible y prepárate para afrontar las consecuencias de tus actos. Recuerda: una sola decisión puede cambiar por completo el futuro de Blackbox Exec.",
+    "character": "cherry",
+    "probability": 10,
+    "min_turn": 3,
+    "max_turn": 3,
+    "requirements": {
+      "money": 0,
+      "innovation": 0,
+      "workers": 0,
+      "acceptance": 0
+    },
+    "required_flags": [],
+    "option1": {
+      "text": "Continuar",
+      "effects": {},
+      "flags_add": [],
+      "flags_messages": {}
+    },
+    "option2": {
+      "text": "Continuar",
+      "effects": {},
+      "flags_add": [],
+      "flags_messages": {}
+    },
+    "position": 3
+  },
+  {
+    "id": "kevin_bug_notified",
+    "title": "Bug en modulo",
+    "description": "Encontré un bug en el módulo de reportes, pienso que lo mejor sería repararlo cuanto antes, pero eso significaría trabajar extra",
+    "character": "programador",
+    "probability": 10,
+    "min_turn": 1,
+    "max_turn": 999,
+    "requirements": {
+      "money": 0,
+      "innovation": 0,
+      "workers": 0,
+      "acceptance": 0
+    },
+    "required_flags": [],
+    "option1": {
+      "text": "Dejarlos trabajando",
+      "effects": {
+        "workers": 5,
+        "money": -5
+      },
+      "flags_add": [],
+      "flags_messages": {}
+    },
+    "option2": {
+      "text": "No repararlo",
+      "effects": {
+        "acceptance": -5
+      },
+      "flags_add": [],
+      "flags_messages": {}
+    }
+  },
+  {
+    "id": "new_sotfware",
+    "title": "Adquirir nuevo software",
+    "description": "Necesito que una IA que automatice mis reportes de contabilidad y la necesito en menos de un mes",
+    "character": "cliente",
+    "probability": 10,
+    "min_turn": 1,
+    "max_turn": 999,
+    "requirements": {
+      "money": 0,
+      "innovation": 0,
+      "workers": 0,
+      "acceptance": 0
+    },
+    "required_flags": [],
+    "option1": {
+      "text": "Aceptar Contrato",
+      "effects": {
+        "money": 5,
+        "workers": -10
+      },
+      "flags_add": [],
+      "flags_messages": {}
+    },
+    "option2": {
+      "text": "Rechazar contrato",
+      "effects": {
+        "money": -5,
+        "workers": 10
+      },
+      "flags_add": [
+        "client_disappointed"
+      ],
+      "flags_messages": {
+        "client_disappointed": "Cliente decepcionado"
+      }
+    }
+  }
+]

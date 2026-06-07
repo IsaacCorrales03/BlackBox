@@ -11,15 +11,24 @@ config_version=4
 [application]
 
 config/name="BLACKBOX EXEC"
+run/main_scene="res://scenes/game.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+EventManager="*res://scripts/event_manager.gd"
+GameManager="*res://scripts/game_manager.gd"
 
 [display]
 
-mouse_cursor/custom_image="res://assets/goth_cursor.png"
+window/size/height=512
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [global]
 
 cursor=false
+EDITOR=false
 
 [gui]
 
@@ -28,7 +37,3 @@ common/drop_mouse_on_gui_input_disabled=true
 [physics]
 
 common/enable_pause_aware_picking=true
-
-[rendering]
-
-environment/default_environment="res://default_env.tres"

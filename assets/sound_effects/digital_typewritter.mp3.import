@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/digital_typewritter.mp3-060798f8fcd4a88b8f8534802b9e7752.mp3str"
+
+[deps]
+
+source_file="res://assets/sound_effects/digital_typewritter.mp3"
+dest_files=[ "res://.import/digital_typewritter.mp3-060798f8fcd4a88b8f8534802b9e7752.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
