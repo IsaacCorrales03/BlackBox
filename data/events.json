@@ -34,8 +34,8 @@
     "description": "En el panel derecho podrás consultar tus estadísticas en todo momento.\n\nTus decisiones pueden aumentarlas o reducirlas, así que administra tus recursos con cuidado. Mantener un equilibrio será clave para seguir avanzando.",
     "character": "cherry",
     "probability": 10,
-    "min_turn": 2,
-    "max_turn": 2,
+    "min_turn": 1,
+    "max_turn": 1,
     "requirements": {
       "money": 0,
       "innovation": 0,
@@ -89,7 +89,7 @@
   {
     "id": "kevin_bug_notified",
     "title": "Bug en modulo",
-    "description": "Encontré un bug en el módulo de reportes, pienso que lo mejor sería repararlo cuanto antes, pero eso significaría trabajar extra",
+    "description": "Director, encontré un bug en el módulo de reportes.\nNo detiene el sistema, pero algunos datos están saliendo mal.\nPuedo arreglarlo hoy, pero necesitaría que el equipo trabaje horas extra.\nSé que eso afecta la moral, pero si esperamos, el problema puede crecer.\n\n¿Qué hacemos?",
     "character": "programador",
     "probability": 10,
     "min_turn": 1,
@@ -102,28 +102,39 @@
     },
     "required_flags": [],
     "option1": {
-      "text": "Dejarlos trabajando",
+      "text": "Autorizo horas extra",
       "effects": {
-        "workers": 5,
-        "money": -5
+        "workers": -5,
+        "money": -5,
+        "innovation": 5,
+        "acceptance": 5
+      },
+      "trust_add": 1,
+      "flags_messages": {
+        "Ahora puedes llamar a Kevin": "",
+        "kevin_trust_you": "Ahora puedes llamar a Kevin"
+      },
+      "flags_add": [
+        "kevin_trust_you"
+      ]
+    },
+    "option2": {
+      "text": "Nadie lo va a notar",
+      "effects": {
+        "money": 5,
+        "acceptance": -10,
+        "innovation": -5
       },
       "flags_add": [],
       "flags_messages": {}
     },
-    "option2": {
-      "text": "No repararlo",
-      "effects": {
-        "acceptance": -5
-      },
-      "flags_add": [],
-      "flags_messages": {}
-    }
+    "position": 5
   },
   {
-    "id": "new_sotfware",
-    "title": "Adquirir nuevo software",
-    "description": "Necesito que una IA que automatice mis reportes de contabilidad y la necesito en menos de un mes",
-    "character": "cliente",
+    "id": "contador_balance_irregular",
+    "title": "Balance Irregular",
+    "description": "Director, los balances no dan bien. \nSi reportamos todo tal cual, los inversionistas van a reaccionar mal. \nPodemos ser transparentes… o ajustar el informe para que parezca más estable. ¿Qué hacemos?\"",
+    "character": "contador",
     "probability": 10,
     "min_turn": 1,
     "max_turn": 999,
@@ -135,26 +146,90 @@
     },
     "required_flags": [],
     "option1": {
-      "text": "Aceptar Contrato",
+      "text": "Reportar transparencia.",
       "effects": {
-        "money": 5,
-        "workers": -10
+        "money": -10,
+        "workers": 5
       },
       "flags_add": [],
       "flags_messages": {}
     },
     "option2": {
-      "text": "Rechazar contrato",
+      "text": "Retrasar el informe",
       "effects": {
         "money": -5,
+        "workers": -5
+      },
+      "flags_add": [],
+      "flags_messages": {}
+    }
+  },
+  {
+    "id": "rrhh_renuncias_equipo",
+    "title": "Renuncias en el equipo",
+    "description": "Director, varios empleados están considerando renunciar. Dicen que la carga de trabajo es insostenible. Podemos reducir presión y atrasar proyectos, o exigir resultados y arriesgarnos a perder personal. ¿Qué hacemos?\"",
+    "character": "rrhh",
+    "probability": 10,
+    "min_turn": 1,
+    "max_turn": 999,
+    "requirements": {
+      "money": 0,
+      "innovation": 0,
+      "workers": 0,
+      "acceptance": 0
+    },
+    "required_flags": [],
+    "option1": {
+      "text": "Reducir la carga",
+      "effects": {
+        "money": -10,
         "workers": 10
       },
-      "flags_add": [
-        "client_disappointed"
-      ],
-      "flags_messages": {
-        "client_disappointed": "Cliente decepcionado"
-      }
+      "flags_add": [],
+      "flags_messages": {}
+    },
+    "option2": {
+      "text": "Ignorar las quejas.",
+      "effects": {
+        "money": 10,
+        "workers": -15
+      },
+      "flags_add": [],
+      "flags_messages": {}
+    }
+  },
+  {
+    "id": "marketing_campana_agresiva",
+    "title": "Campaña agresiva",
+    "description": "Director, tenemos una campaña lista. Puede atraer muchos usuarios, pero exagera bastante lo que el producto realmente hace. Si la lanzamos, crecemos rápido pero si la ajustamos, será más honesta pero menos impactante. ¿Qué hacemos?\"",
+    "character": "community_manager",
+    "probability": 10,
+    "min_turn": 1,
+    "max_turn": 999,
+    "requirements": {
+      "money": 0,
+      "innovation": 0,
+      "workers": 0,
+      "acceptance": 0
+    },
+    "required_flags": [],
+    "option1": {
+      "text": "Lancen la campaña",
+      "effects": {
+        "money": 15,
+        "acceptance": -5
+      },
+      "flags_add": [],
+      "flags_messages": {}
+    },
+    "option2": {
+      "text": "Sean Honestos",
+      "effects": {
+        "money": 5,
+        "acceptance": 5
+      },
+      "flags_add": [],
+      "flags_messages": {}
     }
   }
 ]

@@ -100,43 +100,49 @@ Con el paso del tiempo evolucionó hasta convertirse en una red masiva de almace
 *La verdadera naturaleza de ECHO depende de las decisiones acumuladas del jugador a lo largo de las tres fases.*
 
 ---
-
 ## 05. PERSONAJES
 
 ### Elenco Principal
 
-| PERSONAJE | ROL / NOTAS |
-|---|---|
-| **Cherry** | Tutorial y guía inicial. Punto de entrada para el jugador. |
-| **RRHH / Claire** | Contrataciones, despidos, bienestar laboral. Genera reportes con consecuencias narrativas. |
-| **Contador / Ellis** | Economía, presupuestos, inversiones. Fuente de presión fiscal constante. |
-| **Cliente / Harmon** | Contratos y oportunidades de negocio. Presión sobre Economía vs Aceptación. |
-| **Community Manager** | Imagen pública y reputación. Gestiona crisis de Aceptación. |
-| **Trabajador / #2847** | Perspectiva interna de empleados. Voz de la base laboral. |
-| **Programador / Kevin** | Sistemas informáticos y desarrollo. Introduce bugs con consecuencias narrativas. |
-| **Diseñadora** | Diseño de productos e identidad corporativa. Impacta Aceptación e Innovación. |
-| **Dra. Voss / Científica** | Investigación avanzada. Figura central en la revelación del Proyecto ECHO. |
-| **Mantenimiento** | Infraestructura y anomalías técnicas. Primeras señales de algo oculto. |
-| **Don Rubén / Conserje** | Observaciones extrañas. Conoce secretos internos sin entender su alcance. |
-| **Sandra Veil / Periodista** | Investigaciones externas y filtraciones. Evento fijo en turno 10. |
-| **Mara / Activista** | Presión social y movimientos ciudadanos. Afecta Aceptación y Empleados. |
-| **Null / Hacker** | Intrusiones, filtraciones y eventos ocultos. Puede revelar datos clasificados. |
-| **Reeves / Agente Federal** | Investigaciones oficiales. Flag `reeves_flagged` desencadena consecuencias en Act 2. |
-| **CORE / IA Malvada** | Antagonista principal. Seed en Act 1, comunicación directa en Act 3. |
+| PERSONAJE                            | ROL / NOTAS                                                                                                                                                       |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Cherry**                           | Tutorial y guía inicial. Punto de entrada para el jugador.                                                                                                        |
+| **Claire / RRHH**                    | Contrataciones, despidos, bienestar laboral. Genera reportes con consecuencias narrativas.                                                                        |
+| **Ellis / Contador**                 | Economía, presupuestos, inversiones. Fuente de presión fiscal constante.                                                                                          |
+| **Harmon / Cliente**                 | Contratos y oportunidades de negocio. Presión sobre Economía vs Aceptación.                                                                                       |
+| **Vera Knox / Community Manager**    | Imagen pública y reputación. Gestiona crisis de Aceptación, campañas y escándalos mediáticos.                                                                     |
+| **#2847 / Trabajador**               | Perspectiva interna de empleados. Voz de la base laboral. Su anonimato refuerza la deshumanización corporativa.                                                   |
+| **Kevin / Programador**              | Sistemas informáticos y desarrollo. Introduce bugs con consecuencias narrativas.                                                                                  |
+| **Iris Vale / Diseñadora**           | Diseño de productos e identidad corporativa. Impacta Aceptación e Innovación.                                                                                     |
+| **Dra. Helena Voss / Científica**    | Investigación avanzada. Figura central en la revelación del Proyecto ECHO.                                                                                        |
+| **Bruno Kade / Mantenimiento**       | Infraestructura y anomalías técnicas. Primeras señales de algo oculto.                                                                                            |
+| **Don Rubén / Conserje**             | Observaciones extrañas. Conoce secretos internos sin entender su alcance.                                                                                         |
+| **Sandra Veil / Periodista**         | Investigaciones externas y filtraciones. Evento fijo en turno 10.                                                                                                 |
+| **Mara Sol / Activista**             | Presión social y movimientos ciudadanos. Afecta Aceptación y Empleados.                                                                                           |
+| **Null / Hacker**                    | Intrusiones, filtraciones y eventos ocultos. Puede revelar datos clasificados.                                                                                    |
+| **Reeves / Agente Federal**          | Investigaciones oficiales. Flag `reeves_flagged` desencadena consecuencias en Act 2.                                                                              |
+| **CORE / IA Malvada**                | Antagonista principal. Seed en Act 1, comunicación directa en Act 3.                                                                                              |
+| **Silas Veyr / Antiguo Director**    | Personaje oculto. Se comunica mediante mensajes anónimos en Fase 2. Conciencia digital almacenada en ECHO. Figura narrativa central de Fases 2 y 3.               |
+| **Victor Harlowe / Inversionista**   | Representa accionistas poderosos. Exige despidos, recortes, automatización y expansión agresiva. Tensión constante entre Economía y bienestar humano.             |
+| **Eleanor Strake / Junta Directiva** | Representante ejecutiva de la Junta. Parece normal en Fase 1. En Fase 3 se revela que conoce la naturaleza real de ECHO y puede ser una copia digital.            |
+| **Dra. Naomi Kess / Médica**         | Salud laboral, implantes neuronales y ética biomédica. Clave cuando ECHO interactúa con cerebros humanos. Puede ser aliada o rival de Voss.                       |
+| **Darius Flint / Seguridad**         | Vigilancia corporativa y protección de activos. Propone monitoreo, reconocimiento facial y control interno. Beneficia Economía, perjudica Aceptación y Empleados. |
+| **Tiempo**                           | Sistema narrativo/meta. Representa plazos, deterioro, cuenta regresiva y eventos inevitables. No necesita nombre propio.                                          |
 
 ---
 
-### Nuevos Personajes
+### Criterio de nombres
 
-| PERSONAJE | ROL / NOTAS |
-|---|---|
-| **Director de Seguridad** | Vigilancia corporativa y protección de activos. Propone monitoreo, reconocimiento facial, espionaje corporativo. Beneficia Economía, perjudica Aceptación y Empleados. Sospechoso creciente conforme avanza la historia. |
-| **Inversionista** | Representa accionistas poderosos. Exige despidos, recortes, automatización, expansión agresiva. Fuente constante de tensión Economía vs bienestar humano. |
-| **Miembro de la Junta** | Representante ejecutivo. Parece normal en Fase 1. En Fase 3 se revela que conoce la naturaleza real de ECHO — posible copia digital. |
-| **Director Anterior** | Personaje oculto, no aparece físicamente. Se comunica mediante mensajes anónimos en Fase 2. Conciencia digital almacenada en ECHO. Figura narrativa central de Fases 2 y 3. |
-| **Director Médico** | Responsable de programas biomédicos e implantes neuronales. Clave cuando ECHO interactúa con cerebros humanos. Puede ser aliado o rival de la Científica según decisiones del jugador. |
+Los personajes con peso narrativo, conflicto directo o participación recurrente tienen nombre propio. Los personajes simbólicos o sistémicos conservan una identidad funcional.
+
+| TIPO               | EJEMPLOS                                                        |
+| ------------------ | --------------------------------------------------------------- |
+| **Nombre propio**  | Claire, Ellis, Kevin, Sandra Veil, Dra. Helena Voss, Silas Veyr |
+| **Alias / código** | Null, #2847, CORE                                               |
+| **Rol simbólico**  | Tiempo                                                          |
 
 ---
+
 
 ## 06. FINALES
 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/call_end.mp3-07754a911635293b570c2a96bf072ba5.mp3str"
+
+[deps]
+
+source_file="res://assets/sound_effects/call_end.mp3"
+dest_files=[ "res://.import/call_end.mp3-07754a911635293b570c2a96bf072ba5.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

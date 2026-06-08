@@ -1,0 +1,51 @@
+[
+  {
+    "id": "call_cherry",
+    "character": "programador",
+    "required_level": 0,
+    "dialogues": [
+      {
+        "id": "call_cherry_default",
+        "required_level": 0,
+        "required_flags": [],
+        "priority": 0,
+        "text": "—¿Necesitás algo, Director?",
+        "options": [
+          {
+            "text": "Solo pasaba",
+            "flags_add": [],
+            "flags_messages": {}
+          },
+          {
+            "text": "Nada, gracias",
+            "flags_add": [],
+            "flags_messages": {}
+          }
+        ]
+      },
+      {
+        "id": "call_cherry_vulnerabilidad",
+        "required_level": 1,
+        "required_flags": ["kevin_authorized"],
+        "priority": 10,
+        "text": "Cherry baja la voz.\n\n—Sobre esa vulnerabilidad... hay algo que no cuadra. Los logs muestran accesos que no deberían existir.",
+        "options": [
+          {
+            "text": "Investigá más",
+            "flags_add": ["cherry_investigating"],
+            "flags_messages": {
+              "cherry_investigating": "Cherry comenzó a investigar los logs."
+            },
+            "trust_add": 1
+          },
+          {
+            "text": "Dejalo estar",
+            "flags_add": [],
+            "flags_messages": {},
+            "trust_add": -1
+          }
+        ]
+      }
+    ]
+  }
+]
