@@ -1,12 +1,14 @@
 [
   {
-    "id": "tutorial_1",
-    "title": "Introducción",
-    "description": "Hola, soy Cherry. Bienvenido a Blackbox Exec.\n\nA lo largo del juego se te presentarán distintas situaciones. En cada una deberás elegir la opción que consideres más adecuada. No existe una respuesta perfecta: cada decisión puede desencadenar consecuencias inesperadas.",
-    "character": "cherry",
+    "id": "day1_normal_presupuesto_inicial",
+    "title": "Presupuesto inicial",
+    "description": "Director, el presupuesto de arranque está ajustado. Podemos recortar gastos internos para mostrar solvencia inmediata, o liberar fondos para que los equipos trabajen sin tanta presión desde el primer día.",
+    "character": "contador",
+    "type": "normal",
+    "day": 1,
+    "tags": ["money", "workers"],
     "probability": 10,
-    "min_turn": 1,
-    "max_turn": 1,
+    "unique": true,
     "requirements": {
       "money": 0,
       "innovation": 0,
@@ -14,164 +16,40 @@
       "acceptance": 0
     },
     "required_flags": [],
+    "blocked_flags": [],
     "option1": {
-      "text": "Continuar",
-      "effects": {},
-      "flags_add": [],
-      "flags_messages": {}
-    },
-    "option2": {
-      "text": "Continuar",
-      "effects": {},
-      "flags_add": [],
-      "flags_messages": {}
-    },
-    "position": 1
-  },
-  {
-    "id": "tutorial_2",
-    "title": "Introducción 2",
-    "description": "En el panel derecho podrás consultar tus estadísticas en todo momento.\n\nTus decisiones pueden aumentarlas o reducirlas, así que administra tus recursos con cuidado. Mantener un equilibrio será clave para seguir avanzando.",
-    "character": "cherry",
-    "probability": 10,
-    "min_turn": 1,
-    "max_turn": 1,
-    "requirements": {
-      "money": 0,
-      "innovation": 0,
-      "workers": 0,
-      "acceptance": 0
-    },
-    "required_flags": [],
-    "option1": {
-      "text": "Continuar",
-      "effects": {},
-      "flags_add": [],
-      "flags_messages": {}
-    },
-    "option2": {
-      "text": "Continuar",
-      "effects": {},
-      "flags_add": [],
-      "flags_messages": {}
-    },
-    "position": 2
-  },
-  {
-    "id": "tutorial_3",
-    "title": "Introducción 3",
-    "description": "Si cualquiera de tus estadísticas llega a 0, la partida terminará.\n\nIntenta sobrevivir el mayor tiempo posible y prepárate para afrontar las consecuencias de tus actos. Recuerda: una sola decisión puede cambiar por completo el futuro de Blackbox Exec.",
-    "character": "cherry",
-    "probability": 10,
-    "min_turn": 3,
-    "max_turn": 3,
-    "requirements": {
-      "money": 0,
-      "innovation": 0,
-      "workers": 0,
-      "acceptance": 0
-    },
-    "required_flags": [],
-    "option1": {
-      "text": "Continuar",
-      "effects": {},
-      "flags_add": [],
-      "flags_messages": {}
-    },
-    "option2": {
-      "text": "Continuar",
-      "effects": {},
-      "flags_add": [],
-      "flags_messages": {}
-    },
-    "position": 3
-  },
-  {
-    "id": "kevin_bug_notified",
-    "title": "Bug en modulo",
-    "description": "Director, encontré un bug en el módulo de reportes.\nNo detiene el sistema, pero algunos datos están saliendo mal.\nPuedo arreglarlo hoy, pero necesitaría que el equipo trabaje horas extra.\nSé que eso afecta la moral, pero si esperamos, el problema puede crecer.\n\n¿Qué hacemos?",
-    "character": "programador",
-    "probability": 10,
-    "min_turn": 1,
-    "max_turn": 999,
-    "requirements": {
-      "money": 0,
-      "innovation": 0,
-      "workers": 0,
-      "acceptance": 0
-    },
-    "required_flags": [],
-    "option1": {
-      "text": "Autorizo horas extra",
+      "text": "Recortar gastos",
       "effects": {
+        "money": 10,
         "workers": -5,
-        "money": -5,
-        "innovation": 5,
-        "acceptance": 5
-      },
-      "trust_add": 1,
-      "flags_messages": {
-        "Ahora puedes llamar a Kevin": "",
-        "kevin_trust_you": "Ahora puedes llamar a Kevin"
-      },
-      "flags_add": [
-        "kevin_trust_you"
-      ]
-    },
-    "option2": {
-      "text": "Nadie lo va a notar",
-      "effects": {
-        "money": 5,
-        "acceptance": -10,
         "innovation": -5
       },
       "flags_add": [],
-      "flags_messages": {}
-    },
-    "position": 5
-  },
-  {
-    "id": "contador_balance_irregular",
-    "title": "Balance Irregular",
-    "description": "Director, los balances no dan bien. \nSi reportamos todo tal cual, los inversionistas van a reaccionar mal. \nPodemos ser transparentes… o ajustar el informe para que parezca más estable. ¿Qué hacemos?\"",
-    "character": "contador",
-    "probability": 10,
-    "min_turn": 1,
-    "max_turn": 999,
-    "requirements": {
-      "money": 0,
-      "innovation": 0,
-      "workers": 0,
-      "acceptance": 0
-    },
-    "required_flags": [],
-    "option1": {
-      "text": "Reportar transparencia.",
-      "effects": {
-        "money": -10,
-        "workers": 5
-      },
-      "flags_add": [],
-      "flags_messages": {}
+      "flags_messages": {},
+      "trust_add": 0
     },
     "option2": {
-      "text": "Retrasar el informe",
+      "text": "Liberar fondos",
       "effects": {
-        "money": -5,
-        "workers": -5
+        "money": -10,
+        "workers": 5,
+        "innovation": 5
       },
       "flags_add": [],
-      "flags_messages": {}
+      "flags_messages": {},
+      "trust_add": 0
     }
   },
   {
-    "id": "rrhh_renuncias_equipo",
-    "title": "Renuncias en el equipo",
-    "description": "Director, varios empleados están considerando renunciar. Dicen que la carga de trabajo es insostenible. Podemos reducir presión y atrasar proyectos, o exigir resultados y arriesgarnos a perder personal. ¿Qué hacemos?\"",
+    "id": "day1_normal_equipo_cansado",
+    "title": "Equipo cansado",
+    "description": "Director, algunos empleados vienen arrastrando turnos extendidos desde antes de su llegada. Podemos darles una mañana de reorganización, o mantener el ritmo para no atrasar entregas.",
     "character": "rrhh",
+    "type": "normal",
+    "day": 1,
+    "tags": ["workers", "money"],
     "probability": 10,
-    "min_turn": 1,
-    "max_turn": 999,
+    "unique": true,
     "requirements": {
       "money": 0,
       "innovation": 0,
@@ -179,33 +57,38 @@
       "acceptance": 0
     },
     "required_flags": [],
+    "blocked_flags": [],
     "option1": {
-      "text": "Reducir la carga",
+      "text": "Darles margen",
       "effects": {
-        "money": -10,
-        "workers": 10
+        "workers": 10,
+        "money": -5
       },
       "flags_add": [],
-      "flags_messages": {}
+      "flags_messages": {},
+      "trust_add": 0
     },
     "option2": {
-      "text": "Ignorar las quejas.",
+      "text": "Mantener el ritmo",
       "effects": {
         "money": 10,
-        "workers": -15
+        "workers": -10
       },
       "flags_add": [],
-      "flags_messages": {}
+      "flags_messages": {},
+      "trust_add": 0
     }
   },
   {
-    "id": "marketing_campana_agresiva",
-    "title": "Campaña agresiva",
-    "description": "Director, tenemos una campaña lista. Puede atraer muchos usuarios, pero exagera bastante lo que el producto realmente hace. Si la lanzamos, crecemos rápido pero si la ajustamos, será más honesta pero menos impactante. ¿Qué hacemos?\"",
-    "character": "community_manager",
+    "id": "day1_normal_demo_inestable",
+    "title": "Demo inestable",
+    "description": "Director, hay una demo preparada para clientes, pero Kevin detectó errores menores en el módulo principal. Podemos presentarla igual para ganar tracción, o retrasarla y corregir antes de exponernos.",
+    "character": "programador",
+    "type": "normal",
+    "day": 1,
+    "tags": ["innovation", "acceptance", "money"],
     "probability": 10,
-    "min_turn": 1,
-    "max_turn": 999,
+    "unique": true,
     "requirements": {
       "money": 0,
       "innovation": 0,
@@ -213,23 +96,144 @@
       "acceptance": 0
     },
     "required_flags": [],
+    "blocked_flags": [],
     "option1": {
-      "text": "Lancen la campaña",
+      "text": "Presentarla igual",
       "effects": {
-        "money": 15,
-        "acceptance": -5
+        "money": 10,
+        "acceptance": -5,
+        "innovation": -5
       },
-      "flags_add": [],
-      "flags_messages": {}
+      "flags_add": [
+        "demo_rushed"
+      ],
+      "flags_messages": {
+        "demo_rushed": "La primera demo salió antes de estar lista."
+      },
+      "trust_add": 0
     },
     "option2": {
-      "text": "Sean Honestos",
+      "text": "Retrasar la demo",
       "effects": {
-        "money": 5,
-        "acceptance": 5
+        "innovation": 10,
+        "acceptance": 5,
+        "money": -5
       },
-      "flags_add": [],
-      "flags_messages": {}
+      "flags_add": [
+        "demo_delayed"
+      ],
+      "flags_messages": {
+        "demo_delayed": "Retrasaste la demo para proteger el producto."
+      },
+      "trust_add": 1
     }
+  },
+  {
+    "id": "day1_normal_mensaje_publico",
+    "title": "Mensaje público",
+    "description": "Director, Marketing quiere publicar un mensaje anunciando una nueva etapa para Nexus. Podemos vender una imagen ambiciosa desde el primer día, o mantener un tono sobrio hasta tener resultados reales.",
+    "character": "community_manager",
+    "type": "normal",
+    "day": 1,
+    "tags": ["acceptance", "money", "public_image"],
+    "probability": 10,
+    "unique": true,
+    "requirements": {
+      "money": 0,
+      "innovation": 0,
+      "workers": 0,
+      "acceptance": 0
+    },
+    "required_flags": [],
+    "blocked_flags": [],
+    "option1": {
+      "text": "Prometer una nueva era",
+      "effects": {
+        "acceptance": 10,
+        "money": 5,
+        "workers": -5
+      },
+      "flags_add": [
+        "public_message_ambitious"
+      ],
+      "flags_messages": {
+        "public_message_ambitious": "Nexus prometió más de lo que puede demostrar."
+      },
+      "trust_add": 0
+    },
+    "option2": {
+      "text": "Mantener tono sobrio",
+      "effects": {
+        "acceptance": 5,
+        "innovation": 5,
+        "money": -5
+      },
+      "flags_add": [
+        "public_message_cautious"
+      ],
+      "flags_messages": {
+        "public_message_cautious": "Nexus eligió una comunicación prudente."
+      },
+      "trust_add": 0
+    }
+  },
+  {
+  "id": "day1_story_kevin_anomalia_servicio",
+  "title": "Anomalía en el servicio",
+  "description": "Director, necesito reportar algo antes de que cierre el día. Uno de nuestros servicios empezó a fallar en módulos que no deberían estar conectados entre sí. Al principio pensé que era un bug común, pero los registros muestran accesos internos que nadie del equipo reconoce. Puedo investigarlo en silencio, aunque eso va a quitar recursos al desarrollo normal. La alternativa es pasarlo directamente a Seguridad y tratarlo como un incidente cerrado.",
+  "character": "programador",
+  "type": "story",
+  "day": 1,
+  "tags": ["development", "bug", "echo", "security"],
+  "probability": 10,
+  "unique": true,
+  "requirements": {
+    "money": 0,
+    "innovation": 0,
+    "workers": 0,
+    "acceptance": 0
+  },
+  "required_flags": [],
+  "blocked_flags": [],
+  "option1": {
+    "text": "Investígalo en silencio",
+    "effects": {
+      "money": -5,
+      "innovation": 5,
+      "workers": -5,
+      "acceptance": 5
+    },
+    "flags_add": [
+      "kevin_trust_you",
+      "vulnerability_investigation_started",
+      "echo_path_open"
+    ],
+    "flags_messages": {
+      "kevin_trust_you": "Kevin confía más en ti.",
+      "vulnerability_investigation_started": "Kevin empezó a investigar la anomalía.",
+      "echo_path_open": "Una ruta oculta ha comenzado."
+    },
+    "trust_add": 1
+  },
+  "option2": {
+    "text": "Que Seguridad se encargue",
+    "effects": {
+      "money": 5,
+      "innovation": -5,
+      "workers": 0,
+      "acceptance": -5
+    },
+    "flags_add": [
+      "kevin_ignored",
+      "security_took_vulnerability",
+      "echo_path_weakened"
+    ],
+    "flags_messages": {
+      "kevin_ignored": "Kevin siente que no confías en su criterio.",
+      "security_took_vulnerability": "Seguridad tomó control del incidente.",
+      "echo_path_weakened": "La investigación sobre ECHO se volvió más difícil."
+    },
+    "trust_add": -1
   }
+}
 ]

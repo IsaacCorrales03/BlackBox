@@ -101,8 +101,7 @@ func load_event():
 	normal_event_before_call = null
 
 	turn += 1
-	$"../char_header/turno".text = str(turn)
-	current_event = EventManager.get_random_event(turn)
+	current_event = EventManager.get_next_event()
 
 	if current_event == null:
 		return
@@ -114,7 +113,7 @@ func _show_event(event_data: Dictionary):
 	current_event = event_data
 
 	var role = current_event.get("character", "")
-	var data = EventManager.get_character_data(role)
+	var data = GameManager.get_character_data(role)
 
 	if not data.empty():
 		$"../char_header/char_asset".texture = load(data["texture"])
@@ -167,15 +166,29 @@ func _process_normal_option(option: Dictionary):
 # ══════════════════════════════════════════════════════════════
 
 func _start_call(contact_id: String):
-	$"../call_sound".play()
-	yield(get_tree().create_timer(1.0), "timeout")
-	_close_panel()
+	if current_mode == "call":
+		queue_notification("Ya estás en una llamada.", Color("#FF3366"))
+		return
+
+	if not GameManager.can_call():
+		queue_notification("No quedan llamadas disponibles hoy.", Color("#FF3366"))
+		return
+
 	var call_event = CallManager.get_call_event(contact_id)
 
 	if call_event == null:
 		queue_notification("No hay respuesta disponible.", Color("#FF3366"))
 		$"../call_sound2".play()
 		return
+
+	if not GameManager.use_call():
+		queue_notification("No quedan llamadas disponibles hoy.", Color("#FF3366"))
+		return
+
+	$"../call_sound".play()
+	yield(get_tree().create_timer(1.0), "timeout")
+
+	_close_panel()
 
 	normal_event_before_call = current_event
 	current_mode = "call"
@@ -190,16 +203,32 @@ func _process_call_option(option: Dictionary):
 	if not effects.empty():
 		if not GameManager.apply_effects(effects):
 			return
-			
 
 	_process_flags(option)
 	_process_unlock_files(option)
 
-	CallManager.apply_call_option(character_id, option)
-	$"../call_sound2".play()
-	write_description("colgando...")
-	yield(get_tree().create_timer(1.5), "timeout")
-	_restore_event_after_call()
+	var trust_delta = int(option.get("trust_add", 0))
+	if trust_delta != 0:
+		CallManager.add_trust(character_id, trust_delta)
+
+	var next_dialogue = str(option.get("next_dialogue", ""))
+
+	if next_dialogue != "":
+		var next_event = CallManager.get_dialogue_event(character_id, next_dialogue)
+
+		if next_event != null:
+			_show_event(next_event)
+			return
+		else:
+			push_error("No se encontró el siguiente diálogo: " + next_dialogue)
+
+	var should_end = bool(option.get("end_call", true))
+
+	if should_end:
+		$"../call_sound2".play()
+		write_description("colgando...")
+		yield(get_tree().create_timer(1.5), "timeout")
+		_restore_event_after_call()
 
 
 func _restore_event_after_call():
@@ -764,8 +793,19 @@ func _add_contact_row(c: Dictionary):
 	else:
 		trust = CallManager.get_trust(c.id)
 
+	var calls_left = GameManager.get_calls_left()
+
 	var lcall = Label.new()
-	lcall.text = "LLAMAR ›  CONFIANZA " + str(trust) + "/3"
+
+	if calls_left > 0:
+		lcall.text = "LLAMAR ›  CONFIANZA " + str(trust) + "/3  |  LLAMADAS " + str(calls_left)
+		lcall.add_color_override("font_color", C_BLUE)
+	else:
+		lcall.text = "SIN LLAMADAS DISPONIBLES"
+		lcall.add_color_override("font_color", Color("#FF3366"))
+
+	_set_font(lcall, 9)
+	vb.add_child(lcall)
 	lcall.add_color_override("font_color", C_BLUE)
 	_set_font(lcall, 9)
 	vb.add_child(lcall)

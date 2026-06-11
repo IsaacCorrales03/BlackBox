@@ -1,48 +1,152 @@
 [
   {
-    "id": "call_cherry",
+    "id": "call_programador",
     "character": "programador",
     "required_level": 0,
     "dialogues": [
       {
-        "id": "call_cherry_default",
+        "id": "call_kevin_default",
         "required_level": 0,
         "required_flags": [],
+        "blocked_flags": [
+          "vulnerability_investigation_started"
+        ],
         "priority": 0,
-        "text": "—¿Necesitás algo, Director?",
+        "text": "—Kevin al habla.\n\nDirector, si esto es por el estado general del sistema, todavía estamos revisando módulos viejos. Hay deuda técnica, pero nada crítico por ahora.",
+        "flags_on_start": [],
+        "flags_messages_on_start": {},
         "options": [
           {
-            "text": "Solo pasaba",
+            "text": "Manténme informado",
+            "effects": {},
             "flags_add": [],
-            "flags_messages": {}
+            "flags_messages": {},
+            "trust_add": 0,
+            "end_call": true
           },
           {
-            "text": "Nada, gracias",
+            "text": "Sigue trabajando",
+            "effects": {},
             "flags_add": [],
-            "flags_messages": {}
+            "flags_messages": {},
+            "trust_add": 0,
+            "end_call": true
           }
         ]
       },
+
       {
-        "id": "call_cherry_vulnerabilidad",
+        "id": "call_kevin_day1_01",
         "required_level": 1,
-        "required_flags": ["kevin_authorized"],
+        "required_flags": [
+          "kevin_trust_you",
+          "vulnerability_investigation_started"
+        ],
+        "blocked_flags": [
+          "kevin_day1_anomaly_discussed"
+        ],
         "priority": 10,
-        "text": "Cherry baja la voz.\n\n—Sobre esa vulnerabilidad... hay algo que no cuadra. Los logs muestran accesos que no deberían existir.",
+        "text": "Kevin tarda unos segundos en responder.\n\n—Director... revisé lo que me autorizó investigar. No parece una falla común.",
+        "flags_on_start": [
+          "kevin_day1_anomaly_discussed",
+          "act1_vulnerability_thread_open"
+        ],
+        "flags_messages_on_start": {
+          "kevin_day1_anomaly_discussed": "Kevin empezó a explicarte la anomalía.",
+          "act1_vulnerability_thread_open": "La línea de investigación interna quedó abierta."
+        },
         "options": [
           {
-            "text": "Investigá más",
-            "flags_add": ["cherry_investigating"],
-            "flags_messages": {
-              "cherry_investigating": "Cherry comenzó a investigar los logs."
-            },
-            "trust_add": 1
-          },
-          {
-            "text": "Dejalo estar",
+            "text": "Continúa",
+            "effects": {},
             "flags_add": [],
             "flags_messages": {},
-            "trust_add": -1
+            "trust_add": 0,
+            "next_dialogue": "call_kevin_day1_02",
+            "end_call": false
+          },
+          {
+            "text": "Resume lo importante",
+            "effects": {},
+            "flags_add": [],
+            "flags_messages": {},
+            "trust_add": 0,
+            "next_dialogue": "call_kevin_day1_02",
+            "end_call": false
+          }
+        ]
+      },
+
+      {
+        "id": "call_kevin_day1_02",
+        "required_level": 1,
+        "required_flags": [],
+        "blocked_flags": [],
+        "priority": 0,
+        "text": "—Los módulos afectados no deberían estar conectados, pero todos reaccionaron al mismo proceso interno.\n\nEl problema es que ese proceso no aparece asignado a ningún usuario actual.",
+        "flags_on_start": [],
+        "flags_messages_on_start": {},
+        "options": [
+          {
+            "text": "¿Entonces fue externo?",
+            "effects": {},
+            "flags_add": [],
+            "flags_messages": {},
+            "trust_add": 0,
+            "next_dialogue": "call_kevin_day1_03",
+            "end_call": false
+          },
+          {
+            "text": "¿Puede ser alguien interno?",
+            "effects": {},
+            "flags_add": [],
+            "flags_messages": {},
+            "trust_add": 0,
+            "next_dialogue": "call_kevin_day1_03",
+            "end_call": false
+          }
+        ]
+      },
+
+      {
+        "id": "call_kevin_day1_03",
+        "required_level": 1,
+        "required_flags": [],
+        "blocked_flags": [],
+        "priority": 0,
+        "text": "—No parece externo. Y tampoco puedo acusar a nadie todavía.\n\nPero si Seguridad toma esto ahora, probablemente van a cerrar el incidente y limpiar los logs. Si me deja seguir, puedo guardar una copia antes de que desaparezca.",
+        "flags_on_start": [],
+        "flags_messages_on_start": {},
+        "options": [
+          {
+            "text": "Guarda una copia de los logs",
+            "effects": {
+              "innovation": 5,
+              "money": -5
+            },
+            "flags_add": [
+              "kevin_saved_day1_logs"
+            ],
+            "flags_messages": {
+              "kevin_saved_day1_logs": "Kevin guardará una copia privada de los registros."
+            },
+            "trust_add": 1,
+            "end_call": true
+          },
+          {
+            "text": "Investiga sin exponerte",
+            "effects": {
+              "workers": 5,
+              "innovation": -5
+            },
+            "flags_add": [
+              "kevin_investigates_low_profile"
+            ],
+            "flags_messages": {
+              "kevin_investigates_low_profile": "Kevin investigará sin levantar sospechas internas."
+            },
+            "trust_add": 0,
+            "end_call": true
           }
         ]
       }

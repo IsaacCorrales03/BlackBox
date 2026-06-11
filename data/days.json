@@ -1,0 +1,34 @@
+{
+  "day": 1,
+  "title": "Primer día en Nexus",
+  "description": "La empresa todavía parece estable, pero los primeros reportes muestran grietas internas.",
+
+  "event_slots": {
+    "normal": 4,
+    "story": 1,
+    "conditional": 1,
+    "director_appointment": 1
+  },
+
+  "calls_available": 1,
+  "max_director_appointments": 1,
+
+  "director_agenda": {
+    "fixed_character": "cherry",
+    "random_characters": [
+      "contador",
+      "rrhh",
+      "community_manager",
+      "programador",
+      "mantenimiento"
+    ],
+    "random_count": 2
+  },
+
+  "collectible": {
+    "id": "archivo_nexus_01",
+    "title": "Memorando de incorporación",
+    "required_flags": ["day1_completed"],
+    "missable": false
+  }
+}

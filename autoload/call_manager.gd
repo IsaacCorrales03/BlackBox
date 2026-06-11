@@ -164,7 +164,8 @@ func _dialogue_to_event(call_data: Dictionary, dialogue: Dictionary) -> Dictiona
 		option1 = _normalize_option({
 			"text": "Colgar",
 			"flags_add": [],
-			"flags_messages": {}
+			"flags_messages": {},
+			"end_call": true
 		})
 
 	if options.size() > 1:
@@ -173,7 +174,8 @@ func _dialogue_to_event(call_data: Dictionary, dialogue: Dictionary) -> Dictiona
 		option2 = _normalize_option({
 			"text": "Colgar",
 			"flags_add": [],
-			"flags_messages": {}
+			"flags_messages": {},
+			"end_call": true
 		})
 
 	return {
@@ -181,10 +183,11 @@ func _dialogue_to_event(call_data: Dictionary, dialogue: Dictionary) -> Dictiona
 		"type": "call",
 		"character": character_id,
 		"description": dialogue.get("text", ""),
+		"flags_on_start": dialogue.get("flags_on_start", []),
+		"flags_messages_on_start": dialogue.get("flags_messages_on_start", {}),
 		"option1": option1,
 		"option2": option2
 	}
-
 
 func _normalize_option(option: Dictionary) -> Dictionary:
 	return {
@@ -194,7 +197,9 @@ func _normalize_option(option: Dictionary) -> Dictionary:
 		"flags_remove": option.get("flags_remove", []),
 		"flags_messages": option.get("flags_messages", {}),
 		"trust_add": option.get("trust_add", 0),
-		"unlock_files": option.get("unlock_files", [])
+		"unlock_files": option.get("unlock_files", []),
+		"next_dialogue": option.get("next_dialogue", ""),
+		"end_call": option.get("end_call", true)
 	}
 
 
@@ -209,3 +214,15 @@ func apply_call_option(character_id: String, option: Dictionary):
 	var trust_delta = int(option.get("trust_add", 0))
 	if trust_delta != 0:
 		add_trust(character_id, trust_delta)
+
+func get_dialogue_event(character_id: String, dialogue_id: String):
+	var call_data = _find_call_by_character(character_id)
+
+	if call_data == null:
+		return null
+
+	for dialogue in call_data.get("dialogues", []):
+		if dialogue.get("id", "") == dialogue_id:
+			return _dialogue_to_event(call_data, dialogue)
+
+	return null
